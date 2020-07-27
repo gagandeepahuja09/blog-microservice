@@ -18,7 +18,7 @@ export default () => {
             <form onSubmit={onSubmit}>
             <div className="form-group">
                 <label>Title</label>
-                <input value={title} 
+                <input className="form-control" value={title} 
                 onChange={e => setTitle(e.target.value)} 
                 className="form-control" />
             </div>
