@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { randomBytes } = require('crypto');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 const posts = {};
@@ -12,7 +14,6 @@ app.get('/posts', (req, res) => {
 });
 
 app.post('/posts', (req, res) => {
-    console.log('trewt');
     const id = randomBytes(4).toString('hex');
     // object destructuring
     const { title } =  req.body;
