@@ -28,12 +28,18 @@ app.post('/posts/:id/comments', async (req, res) => {
         type: 'commentCreated',
         data: {
             id: commentId,
-            comment,
+            content,
             postId: req.params.id,
         }
     });
     res.status(201).send(comments);
 }); 
+
+// Receiving event from event bus
+app.post('/events', (req, res) => {
+    console.log('Event received', req.body.type);
+    res.send({});
+});
 
 app.listen(4001, () => {
     console.log('Listening on 4001');
