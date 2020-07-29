@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 
 app.post('/events', async (req, res) => {
     const { type, data } = req.body;
-    const status = data.status.contains('pizza') ? 'denied' : 'approved';
+    const status = data.content.includes("pizza") ? 'denied' : 'approved';
 
     if(type === 'commentCreated') {
         await axios.post('http://localhost:4005/events', {
